@@ -28,10 +28,28 @@ class Fraction {
             return denum;
         }
 
+        void simplify(){
+            int temp = PGCD(num,denum);
+            num = num/temp;
+            denum = denum/temp;
+        }
+
+        int PGCD (int a, int b) {
+            while(a!=b){
+                if (a>b){
+                    a -= b;
+                } else {
+                    b -= a;
+                }
+                return a;
+            }
+        }
+
         Fraction add(Fraction a){
             Fraction b;
             b.num = num * a.denum + denum * a.num;
             b.denum = denum * a.denum;
+            b.simplify();
             return b;
         }
 
@@ -39,6 +57,7 @@ class Fraction {
             Fraction b;
             b.num = num * a.denum - denum * a.num;
             b.denum = denum * a.denum;
+            b.simplify();
             return b;
         }
 
@@ -46,6 +65,7 @@ class Fraction {
             Fraction b;
             b.num = num * a.num;
             b.denum = denum * a.denum;
+            b.simplify();
             return b;
         }
 
@@ -53,6 +73,7 @@ class Fraction {
             Fraction b;
             b.num = num * a.denum;
             b.denum = denum * a.num;
+            b.simplify();
             return b;
         }
 };
