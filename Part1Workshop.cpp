@@ -14,6 +14,10 @@ class Circle {
         double perimeter(){
             return 2 * 3.14 * r;
         }
+
+        double Aire(){
+            return 2 * 3.14 * r*r;
+        }
 };
 
 class Rectangle {
@@ -30,6 +34,10 @@ class Rectangle {
 
         double perimeter(){
             return 2 * (w + h);
+        }
+
+        double Aire(){
+            return w*h;
         }
 };
 
