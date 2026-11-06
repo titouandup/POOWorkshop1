@@ -23,6 +23,13 @@ class Fraction {
             b.denum = denum * a.denum;
             return b;
         }
+
+        Fraction minus(Fraction a){
+            Fraction b;
+            b.num = num * a.denum - denum * a.num;
+            b.denum = denum * a.denum;
+            return b;
+        }
 };
 
 int main()
