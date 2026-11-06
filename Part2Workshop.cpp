@@ -37,6 +37,13 @@ class Fraction {
             b.denum = denum * a.denum;
             return b;
         }
+
+        Fraction divide(Fraction a){
+            Fraction b;
+            b.num = num * a.denum;
+            b.denum = denum * a.num;
+            return b;
+        }
 };
 
 int main()
