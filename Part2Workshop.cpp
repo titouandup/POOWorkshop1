@@ -5,15 +5,26 @@ using namespace std;
 
 class Fraction {
     private :
-        double num = 1;
-        double denum = 1;
+        int num;
+        int denum;
     
     public : 
-        double getNumerateur(){
+
+        Fraction() {
+            num = 1;
+            denum = 1;
+        }
+
+        Fraction(int a, int b){
+            num = a;
+            denum = b;
+        }
+        
+        int getNumerateur(){
             return num;
         }
 
-        double getDenominateur() {
+        int getDenominateur() {
             return denum;
         }
 
