@@ -4,7 +4,25 @@ using namespace std;
 
 
 class Fraction {
+    private :
+        double num = 1;
+        double denum = 1;
+    
+    public : 
+        double getNumerateur(){
+            return num;
+        }
 
+        double getDenominateur() {
+            return denum;
+        }
+
+        Fraction add(Fraction a){
+            Fraction b;
+            b.num = num * a.denum + denum * a.num;
+            b.denum = denum * a.denum;
+            return b;
+        }
 };
 
 int main()
