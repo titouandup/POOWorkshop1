@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -30,19 +31,23 @@ class Fraction {
 
         void simplify(){
             int temp = PGCD(num,denum);
+            if (temp == 0) return;
             num = num/temp;
             denum = denum/temp;
         }
 
         int PGCD (int a, int b) {
-            while(a!=b){
-                if (a>b){
-                    a -= b;
-                } else {
-                    b -= a;
-                }
-                return a;
+            a = abs(a);
+            b = abs(b);
+            while (b != 0) {
+                int r = a % b;
+                a = b;
+                b = r;
             }
+            return a;
+        }
+        void afficher(){
+            cout << num << "/" << denum << endl; 
         }
 
         Fraction add(Fraction a){
@@ -83,6 +88,7 @@ int main()
     /* Test constructors */
     Fraction f0;
     if (f0.getNumerateur() == 1 && f0.getDenominateur() == 1) {
+        
         cout << "[OK] Default constructor works" << endl;
     }
     else {
@@ -108,6 +114,8 @@ int main()
     else {
         cout << "[FAILURE] Add method doesn't work" << endl;
     }
+    
+
 
     /* Test minus */
     f3 = f1.minus(f2);
